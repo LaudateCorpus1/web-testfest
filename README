@@ -1,6 +1,15 @@
-- This code is running on the Solar framework
+Install:
+========
+In order to be able to install this and develop on it, you'll have to install
+the Solar Framework.
 
-VHOST Example
+See http://solarphp.com/project/download
+
+
+
+Vhost & Apache Configuration:
+=============================
+
 # http://local.testfest.com
 <VirtualHost *:80>
     ServerName local.testfest.com

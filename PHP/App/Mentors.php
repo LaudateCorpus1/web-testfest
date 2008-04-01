@@ -50,4 +50,8 @@ class PHP_App_Mentors extends PHP_App_Base
     {
         $this->output = 'MENTORS_WELCOME';
     }
+
+    public function actionLogin()
+    {
+    }
 }
