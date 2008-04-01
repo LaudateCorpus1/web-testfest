@@ -1,1 +1,25 @@
 - This code is running on the Solar framework
+
+VHOST Example
+# http://local.testfest.com
+<VirtualHost *:80>
+    ServerName local.testfest.com
+    DocumentRoot /path/to/testfest
+    <Directory />
+        AllowOverride All
+        Order deny,allow
+        Allow from all
+    </Directory>
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/public/.*$
+    RewriteRule ^(.*)$ /index.php [QSA,L]
+</VirtualHost>
+
+or in a .htaccess
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/.*$
+RewriteRule ^(.*)$ /index.php [QSA,L]
