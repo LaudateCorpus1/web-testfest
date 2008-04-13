@@ -1,5 +1,6 @@
 <?php
 
+$URIBASE = '/';
 $config = array();
 
 $safedir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'jail';
