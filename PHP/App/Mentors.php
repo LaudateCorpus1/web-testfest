@@ -55,6 +55,16 @@ class PHP_App_Mentors extends PHP_App_Base
     {
     }
 
+    /**
+     * Announce action
+     *
+     * This is where we are supose to handle
+     * the action of adding new announcement 
+     * somewhere...
+     *
+     * @see    $this->_request
+     * @return void
+     */
     public function actionAnnounce()
     {
         $title = $this->_request->post('title');
