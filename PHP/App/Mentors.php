@@ -54,4 +54,20 @@ class PHP_App_Mentors extends PHP_App_Base
     public function actionLogin()
     {
     }
+
+    public function actionAnnounce()
+    {
+        $title = $this->_request->post('title');
+        $text  = $this->_request->post('announcement');
+
+        if (!is_null($title) && !is_null($text)) {
+            /**
+             * @TODO:
+             * Get the username that did this,
+             * Invoke the model and save the text
+             * and title.
+             */
+        }
+        
+    }
 }
