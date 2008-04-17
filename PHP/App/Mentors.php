@@ -9,23 +9,13 @@
  */
 class PHP_App_Mentors extends PHP_App_Base
 {
-
     /**
-     * Type of layout to use.
+     * Name of the partial to use for navigation
      *
-     * @var String   The layout to use.
+     * @var string   The name of the partial.
      */
-    protected $_layout         = 'main';
-
-    /**
-     * The default action
-     *
-     * This is the default action called when this
-     * controller is invoked.
-     *
-     * @var string   The default action to invoke.
-     */
-    protected $_action_default = 'index';
+    public $nav_partial = '_mentors_nav';
+    
     /**
      * The output to display. This is mostly an
      * example of anything running with variables.

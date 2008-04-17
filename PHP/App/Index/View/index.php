@@ -1,17 +1,16 @@
-<div id="header">
- <h1></h1><br /><br />
- <div id="menu">
-  <ul id="nav">
-   <li class="activelink"><a href="/">Home</a></li>
-   <li><a href="/mentors">Mentors</a></li>
-   <li><a href="/contributors">Contributors</a></li>
-  </ul>
- </div>
-</div>
-<div id="content">
-<div id="right">
- <h2><?php echo $this->getText('INDEX_PUBLIC_AREA'); ?></h2>
+<div>
+    <h2><?php echo $this->getText('INDEX_PUBLIC_AREA'); ?></h2>
     <p><?php echo $this->output; ?></p>
- </div>
-</div>	
+</div>
+<div>
+    <h3>Signup</h3>
+    <form method="post" action="">
+        <p><label>Username</label><br />
+        <input type="text" name="login" id="login" size="30" /></p>
+        <p><label>Password</label><br />
+        <input type="password" name="password" id="password" size="30" /></p>
+        <p><input type="checkbox" />&nbsp;mentor ?</p>
+        <p style="text-align: right;"><input type="submit" name="commit" value="Signup" class="login-submit" /> or <a href="/register">register</a></p>
+    </form>
+</div>
 

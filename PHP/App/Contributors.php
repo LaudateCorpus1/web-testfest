@@ -9,45 +9,32 @@
  */
 class PHP_App_Contributors extends PHP_App_Base
 {
-
     /**
-     * Type of layout to use.
+     * Name of the partial to use for navigation
      *
-     * @var String   The layout to use.
+     * @var string   The name of the partial.
      */
-    protected $_layout         = 'main';
-
-    /**
-     * The default action
-     *
-     * This is the default action called when this
-     * controller is invoked.
-     *
-     * @var string   The default action to invoke.
-     */
-    protected $_action_default = 'index';
-    /**
-     * The output to display. This is mostly an
-     * example of anything running with variables.
-     *
-     * @var string    The output variable
-     */
-    public $output = '';
-
+    public $nav_partial = '_contributors_nav';
+    
     /**
      * Action index.
      *
      * This action index when the /contributors root is invoked.
      *
-     * The string passed to this output is the string that you can
-     * get through $this->getText() which will then be i18ned to whichever
-     * language it is set in your locale and in your locale folder.
-     *
-     * @see $this->output
      * @return void
      */
     public function actionIndex()
     {
-        $this->output = 'CONTRIBUTORS_WELCOME';
+        
+    }
+    
+    /**
+     * Action upload.
+     *
+     * @return void
+     */
+    public function actionUpload()
+    {
+        
     }
 }

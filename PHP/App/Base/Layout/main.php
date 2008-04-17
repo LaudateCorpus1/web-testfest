@@ -6,32 +6,40 @@
 <link rel="stylesheet" type="text/css" href="/public/css/style.css" media="screen" />
 </head>
 <body>
-
-<?php echo $this->layout_content; ?>
-
-<div id="left">
-    <!-- News (RSS) -->
-	<div class="box">
-			<h2>News :</h2>	
-			<p>News about the Test Fest</p>
-	</div>
-    <!-- Links to ... -->
-	<div class="box">
-				<h2>Links :</h2>
-				<ul>
-                 <li><a href="http://php.net">PHP</a></li>
-                 <li><a href="http://qa.php.net">PHP QA</a></li>
-                 <li><a href="http://wiki.php.net">PHP Wiki</a></li>
-                 <li><a href="http://docs.php.net">PHP Docs</a></li>
-                 <li><a href="http://bugs.php.net">PHP Bugs</a></li>
-                 <li><a href="http://qa.php.net/testfest">PHP TestFest</a></li>
-				</ul>
-	</div>
-    <!-- Original designer -->
-    <div class="box">
-	   <div style="font-size: 0.8em;">Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a></div>
-	</div>
-</div>
+<div id="container">
+    
+    <div id="header">
+        <h1 class="header-logo">PHP Testfest 2008</h1>
+        <!-- Links to ... -->
+    	<ul id="header-links">
+            <li><a href="http://php.net">PHP</a></li>
+            <li><a href="http://qa.php.net">PHP QA</a></li>
+            <li><a href="http://wiki.php.net">PHP Wiki</a></li>
+            <li><a href="http://docs.php.net">PHP Docs</a></li>
+            <li><a href="http://bugs.php.net">PHP Bugs</a></li>
+    	</ul>
+    	<?php if ($this->nav_partial) echo $this->partial($this->nav_partial); ?>
+    </div>
+    
+    <div id="wrapper">
+        <div id="content">
+            <?php echo $this->layout_content; ?>
+        </div>
+    </div>
+    
+    <div id="sidebar">
+        <!-- News (RSS) -->
+    	<div class="box">
+    	    <h2>News :</h2>	
+            <p>News about the Test Fest</p>
+    	</div>
+    </div>
+    
+    <div id="footer">
+        <a href="http://php.net/copyright.php">Copyright &copy; 2001-2008 The PHP Group</a><br />
+        All rights reserved.
+    </div>
+    
 </div>
 </body>
 </html>

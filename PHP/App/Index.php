@@ -11,23 +11,6 @@
 class PHP_App_Index extends PHP_App_Base
 {
     /**
-     * Type of layout to use.
-     *
-     * @var String   The layout to use.
-     */
-    protected $_layout         = 'main';
-
-    /**
-     * The default action
-     *
-     * This is the default action called when this
-     * controller is invoked.
-     *
-     * @var string   The default action to invoke.
-     */
-    protected $_action_default = 'index';
-
-    /**
      * The output to display. This is mostly an
      * example of anything running with variables.
      *
