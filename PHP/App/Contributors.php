@@ -25,7 +25,7 @@ class PHP_App_Contributors extends PHP_App_Base
      */
     public function actionIndex()
     {
-        
+
     }
     
     /**

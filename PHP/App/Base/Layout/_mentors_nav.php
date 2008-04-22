@@ -1,6 +1,6 @@
 <ul id="nav-links">
-    <li class="current"><a href="/mentors/my"><span>My Account</span></a></li>
-    <li><a href="/mentors/review"><span>Test Review</span></a></li>
-    <li><a href="/mentors/livetest"><span>Live Testing Area</span></a></li>
-    <li><a href="/mentors/announce"><span>Announcements</span></a></li>
+    <li><?php echo $this->navAction('My Account', '/mentors/my'); ?></li>
+    <li><?php echo $this->navAction('Test Review', '/mentors/review'); ?></li>
+    <li><?php echo $this->navAction('Live Testing Area', '/mentors/livetest'); ?></li>
+    <li><?php echo $this->navAction('Announcements', '/mentors/announce'); ?></li>
 </ul>
