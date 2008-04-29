@@ -8,4 +8,6 @@ return array(
     'UPLOAD_FORM_LABEL'    => 'Test file (.phpt) or zip of test files (.zip, .tar.gz)',
     'UPLOAD_FORM_BUTTON'   => 'Upload',
     'UPLOAD_UNZIP_ERROR'   => 'An error occured while unziping your file. Please retry.',
+    'UPLOAD_UNKNOWN_FILE_TYPE' => 'Unknown file type. Please retry.',
+    'UPLOAD_SUCCESS' => 'Upload successful !',
 );

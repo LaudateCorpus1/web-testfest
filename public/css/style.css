@@ -127,3 +127,28 @@ ul#nav-links a.current span {
     background-position: 100% -60px;
 }
 
+div#notice {
+    position: absolute;
+    top: 25px;
+    width: 30%;
+    margin-left:35%;
+    margin-right:35%;
+}
+
+div#notice p {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 0.5em 0.5em 0.5em 2.5em;
+    background: #06ba06 url("/public/images/information.png") no-repeat 0.5em 50%;
+    border:2px solid #fff;
+    color: #fff;
+}
+
+/* ----- Forms ----- */
+p#form-error {
+    background-color: #cc0000;
+    color: #fff;
+    padding: 0.8em;
+    margin: 1em 0;
+}
+

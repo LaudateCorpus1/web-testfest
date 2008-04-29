@@ -31,4 +31,22 @@ class PHP_App_Base extends Solar_Controller_Page
      * @var string   The name of the partial.
      */
     public $nav_partial = false;
+    
+    /**
+     * Read-once notice to display
+     *
+     * @var string   The notice string.
+     */
+    public $flash_notice = null;
+    
+    /**
+     * Setup method called after instantiation
+     *
+     * We use this to register a sql shared object needed to work with models.
+     */
+    protected function _setup()
+    {
+        Solar_Registry::set('sql', Solar::factory('Solar_Sql'));
+        $this->flash_notice = $this->_session->getFlash('notice');
+    }
 }

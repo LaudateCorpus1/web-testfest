@@ -4,6 +4,13 @@
 <head>
 <title><?php echo $this->getText('BASE_TITLE'); ?></title>
 <link rel="stylesheet" type="text/css" href="/public/css/style.css" media="screen" />
+<script src="/public/js/jquery-1.2.3.min.js" type="text/javascript"></script>
+<script type="text/javascript">                                         
+    $(document).ready(function() {
+        $('#notice').show('slow');
+        window.setTimeout("$('#notice').hide('slow')", 4000);
+    });                                    
+</script>
 </head>
 <body>
 <div id="container">
@@ -19,6 +26,11 @@
             <li><a href="http://bugs.php.net">PHP Bugs</a></li>
     	</ul>
     	<?php if ($this->nav_partial) echo $this->partial($this->nav_partial); ?>
+    	<div id="notice" style="display:hidden;">
+            <?php if ($this->flash_notice !== null) : ?>
+                <p><?php echo $this->getText($this->flash_notice); ?></p>
+            <?php endif; ?>
+        </div>
     </div>
     
     <div id="wrapper">

@@ -5,7 +5,7 @@ $config = array();
 
 $safedir = dirname(__FILE__) . DIRECTORY_SEPARATOR . 'jail';
 // Base action href
-$config['Solar_Uri_Action']['path'] = "$URIBASE/index.php";
+$config['Solar_Uri_Action']['path'] = "$URIBASE";
 
 // Base public directory href
 $config['Solar_Uri_Public']['path'] = "$URIBASE/public";
