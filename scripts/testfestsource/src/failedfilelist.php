@@ -27,7 +27,10 @@ $phpVersion = array( 'php6.0',
 //'php5.2',
 );
 
+
 $base = $_GET['basename'];
+$base = preg_replace('#[^a-z_-.]#', '', $base);
+
 $_SESSION['basename'] = $base;
 
 $expFile = $base.".exp";

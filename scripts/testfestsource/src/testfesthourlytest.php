@@ -41,6 +41,9 @@ $filesToCopy = $testSetup->getFilesToCopy();
 
 //copy all the files into a directory thay can be run from
 foreach($phpVersion as $dir) {
+    //remove .phpt files from last run, necessary of people have moved things around in SVN.
+    shell_exec("find $testRunDir/$dir -name \"*.phpt\" | xargs -i rm {}");	
+
     foreach ($filesToCopy as $file) {         
         $from = trim($svnCheckOutDir."/testfest/".$file);
         $destFile = $testSetup->targetFileName($file);
@@ -51,12 +54,11 @@ foreach($phpVersion as $dir) {
 }
 
 foreach ($phpVersion as $dir) {
+    $testDir = $testRunDir."/".$dir;
     $run_tests = $phpBuildDir."/".$dir."/run-tests.php";
     $phpExecutable = $phpBuildDir."/".$dir."/sapi/cli/php";
-    $testDir = $testRunDir."/".$dir;
     echo "$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir\n";
     $results = shell_exec("$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir");
-    var_dump ($results);
     file_put_contents($testDir."/results", $results);
 }
 

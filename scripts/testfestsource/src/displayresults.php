@@ -33,7 +33,7 @@ foreach($phpVersion as $version) {
     $results = file($testfile);
 
     foreach($results as $line) {
-        if(preg_match('/^TEST.*([A-Z]{4}).*\[(.*)\]/', $line, $matches)) {
+        if(preg_match('/^TEST.*\s+([A-Z]{4})\s+.*\[(.*)\]/', $line, $matches)) {
             $base = substr($matches[2], 0, -5);         
 	    $relativename = substr($base, strlen($testRunDir."/".$version."/"));         
             $publishname = $publishDir."/".$version."/".$relativename;
