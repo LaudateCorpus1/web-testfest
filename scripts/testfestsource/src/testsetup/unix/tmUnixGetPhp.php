@@ -47,8 +47,11 @@ class tmUnixGetPhp extends tmGetPhp
     public function buildPHP ($buildsDir)
     {
        $configure_flags = "";
+       //Note that php6.0 does not build with intl on this machine. 
        if(substr($this->buildType, -strlen('6.0')) == '6.0') {
-            $configure_flags .= "--with-icu-dir=/home/testfestreports/phpBuildDir/ICU-install";
+            $configure_flags .= "--with-icu-dir=/usr/local --with-gettext --with-ldap --with-xsl --enable-sockets --with-tidy --with-zlib=/usr --enable-json --with-imap=/usr --with-kerberos --with-imap-ssl=/usr --enable-pcntl --enable-ftp --with-curl=/usr";
+       } else {
+            $configure_flags .= "--enable-intl --with-gettext --with-ldap --with-xsl --enable-sockets --with-tidy --with-zlib=/usr --enable-json --with-imap=/usr --with-kerberos --with-imap-ssl=/usr --enable-pcntl --enable-ftp --with-curl=/usr";
        }
        $current = realpath(getcwd());
        chdir($buildsDir."/".$this->buildType);

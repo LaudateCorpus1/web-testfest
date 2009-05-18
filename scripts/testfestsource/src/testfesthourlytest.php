@@ -14,6 +14,7 @@ $repositoryPath = "http://89.151.87.83/repos/testfest";
 $rootDir = "/home/testfestreports";
 
 $svnCheckOutDir = $rootDir."/svnCheckOutDir";
+$cvsCheckOutDir = $rootDir."/cvsCheckOutDir/php5";
 
 $phpBuildDir = $rootDir."/phpBuildDir";
 
@@ -31,9 +32,12 @@ $testSetup = new tmExtractTests($repositoryPath, $svnCheckOutDir);
 if(!is_dir($svnCheckOutDir)) {
     $testSetup->checkOut();
 } else {
-    echo "updating\n";
+    echo "updating SVN\n";
     $testSetup->update();
 }
+
+//set enviroment variable needed for CURL tests. Better not to do this, shoudl have an --ENV-- section & --SKIPIF--
+putenv('PHP_CURL_HTTP_REMOTE_SERVER=http://results.testfest.php.net');
 
 $testSetup->setFilesToCopy();
 
@@ -48,7 +52,7 @@ foreach($phpVersion as $dir) {
         $from = trim($svnCheckOutDir."/testfest/".$file);
         $destFile = $testSetup->targetFileName($file);
         $to = $testRunDir."/".$dir."/".$destFile;
-        echo "Copy $from to $to\n";
+        // echo "Copy $from to $to\n";
         shell_exec("cp $from $to");         
     }
 }
@@ -61,10 +65,11 @@ foreach ($phpVersion as $dir) {
     $results = shell_exec("$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir");
     file_put_contents($testDir."/results", $results);
 }
+//check to see what has already been committed - just does a 5.3 check an gets a list of files that 
+// have been copied to CVS
 
-
-
-
-
-
+$cvsChecker = new tmCvsCheck($testRunDir . "/php5.3", $cvsCheckOutDir);
+$commitList = $cvsChecker->makeCommitList();
+$commitString = implode("\n", $commitList);
+file_put_contents($testRunDir . "/commits", $commitString);
 ?>

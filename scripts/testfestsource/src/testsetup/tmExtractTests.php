@@ -23,7 +23,7 @@ class tmExtractTests {
 
     public function update() {
         $current = realpath(getcwd());
-        chdir($this->svnTestLocation."/".testfest);
+        chdir($this->svnTestLocation."/testfest");
         shell_exec("svn update");
         chdir($current);
     }
@@ -42,6 +42,7 @@ class tmExtractTests {
         $incFiles = explode('./', $fileList);
 
         $relNamesToCopy = array_merge($phptFiles, $incFiles);
+      
         //remove any bogus entries
         foreach ($relNamesToCopy as $filename) {
             $filename = trim($filename);
@@ -58,6 +59,8 @@ class tmExtractTests {
     public function targetFileName($name) {
         if(preg_match('/(\w+)\/(.*).phpt/', $name, $matches)) {
             $target = $matches[2]."_".$matches[1].".phpt";
+        } else if(preg_match('/(\w+)\/(.*).inc/', $name, $matches)) {
+            $target = $matches[2].".inc";
         } else {
             $target = $name;
         }

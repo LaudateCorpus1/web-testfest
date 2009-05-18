@@ -1,11 +1,10 @@
-@CHARSET "UTF-8";
 
 body {
   padding-left: 11em;
   font-family: Georgia, "Times New Roman",
         Times, serif;
-  color: #0b0794;
-  background-color: #e6e6fa }
+  color: #b9484a;
+  background-color: #89df00 }
 ul.navbar {
   list-style-type: none;
   padding: 0;
@@ -32,34 +31,30 @@ address {
   margin-top: 1em;
   padding-top: 1em;
   border-top: thin dotted }
-  
-table.resultTable { width: 70%; padding: 0px; border: none; border: 1px solid #FFC000;}
+
+table.resultTable { width: 70%; padding: 0px; border: none; border: 1px solid #b944a4;}
 
 table.resultTable th {
-	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
-	color: #1D1AB2;
-	border-right: 2px solid #FFC000;
-	border-bottom: 2px solid #FFC000;
-	border-top: 2px solid #FFC000;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	text-align: left;
-	padding: 6px 6px 6px 6px; 
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #1D1AB2;
+    border-right: 2px solid #2b8a3b;
+    border-bottom: 2px solid #2b8a3b;
+    border-top: 2px solid #2b8a3b;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 6px 6px 6px;
 }
 
 table.resultTable td {
-	border-right: 2px solid #FFC000;
-	border-bottom: 2px solid #FFC000;
-	background: #fff;
-	padding: 6px 6px 6px 6px;
-	color: #323086;
+    border-right: 2px solid #2b8a3b;
+    border-bottom: 2px solid #2b8a3b;
+    background: #fff;
+    padding: 6px 6px 6px 6px;
+    color: #323086;
 }
 
 table.resultTable tr.special td {
-	background: #FFC000;
+    background: #2b8a3b;
 }
-
-
-
-
 

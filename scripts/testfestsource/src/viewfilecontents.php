@@ -31,9 +31,8 @@ $basename = $_SESSION['basename'];
 echo "<br><b>File:".$file."</b><br><br>";
 
 $file = realpath($file);
-
-if (strpos($file, '/var/www/html/publishresults/') !== 0) {
-	echo "Test file outside expected path<br />";
+if (strpos($file, '/p2/var/www/results.testfest.php.net/public_html/publishresults/') !== 0) {
+	echo "Test file $file outside expected path<br />";
 } else {
 	$contents = file($file);
 
@@ -42,7 +41,7 @@ if (strpos($file, '/var/www/html/publishresults/') !== 0) {
 	}
 }
 
-echo "<br /><br /><a href='failedfilelist.php?basename=$basename'>Back to file list</a><br />";
+echo "<br /><br /><a href='filelist.php?basename=$basename'>Back to file list</a><br />";
 
 ?>
 </body>
