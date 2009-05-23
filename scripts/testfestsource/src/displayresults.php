@@ -61,6 +61,7 @@ foreach($phpVersion as $version) {
 
 //get the list of committed files
 $testNames = file($publishDir . "/commits");
+$totalCommittedTests = count($testNames);
 $committedTests = array();
 
 foreach ($testNames as $line) {
@@ -72,13 +73,14 @@ $_SESSION['states'] = $states;
 $_SESSION['filebase'] = $filebase;
 $_SESSION['relat'] = $relat;
 
-$summary = buildSummary($relat);
+$summary = buildSummary($relat, $totalCommittedTests);
 echo $summary;
+
 
 $out = buildSummaryTable($states,  $relat, $filebase, $committedTests);
 echo $out;
 
-function buildSummary($relat) {
+function buildSummary($relat, $totalCommittedTests) {
 $groups = array();
 foreach($relat as $testname) {
         preg_match("/.*_(\w+)$/", $testname, $matches);
@@ -95,7 +97,9 @@ foreach ($groups as $groupName => $numberOfTests) {
   $totalTests += $numberOfTests;
   $htmlString .= "Tests from group $groupName = $numberOfTests<br>";
 }
-$htmlString .= "<br><b>Total tests contributed = $totalTests</b><br><br>";
+$htmlString .= "<br><b>Total tests contributed = $totalTests</b><br>";
+
+$htmlString .= "<br><b>Total tests moved to PHP CVS = $totalCommittedTests</b><br><br>";
 
 return $htmlString;
 }
