@@ -41,7 +41,16 @@ class tmExtractTests {
         $fileList = shell_exec("find . -name \"*.inc\"");
         $incFiles = explode('./', $fileList);
 
-        $relNamesToCopy = array_merge($phptFiles, $incFiles);
+        $fileList = shell_exec("find . -name \"*.xsd\"");
+        $xsdFiles = explode('./', $fileList);
+
+        $fileList = shell_exec("find . -name \"*.xml\"");
+        $xmlFiles = explode('./', $fileList);
+
+        $fileList = shell_exec("find . -name \"*.xsl\"");
+        $xslFiles = explode('./', $fileList);
+
+        $relNamesToCopy = array_merge($phptFiles, $incFiles, $xsdFiles,  $xmlFiles, $xslFiles);
       
         //remove any bogus entries
         foreach ($relNamesToCopy as $filename) {
@@ -50,6 +59,15 @@ class tmExtractTests {
                 $this->relNamesToCopy[] = $filename;
             }
             if (substr($filename, -strlen('.inc')) == '.inc') {
+                $this->relNamesToCopy[] = $filename;
+            }
+            if (substr($filename, -strlen('.xsd')) == '.xsd') {
+                $this->relNamesToCopy[] = $filename;
+            }
+            if (substr($filename, -strlen('.xml')) == '.xml') {
+                $this->relNamesToCopy[] = $filename;
+            }
+            if (substr($filename, -strlen('.xsl')) == '.xsl') {
                 $this->relNamesToCopy[] = $filename;
             }
         }
@@ -61,6 +79,12 @@ class tmExtractTests {
             $target = $matches[2]."_".$matches[1].".phpt";
         } else if(preg_match('/(\w+)\/(.*).inc/', $name, $matches)) {
             $target = $matches[2].".inc";
+        } else if(preg_match('/(\w+)\/(.*).xsd/', $name, $matches)) {
+            $target = $matches[2].".xsd";
+        } else if(preg_match('/(\w+)\/(.*).xml/', $name, $matches)) {
+            $target = $matches[2].".xml";
+        } else if(preg_match('/(\w+)\/(.*).xsl/', $name, $matches)) {
+            $target = $matches[2].".xsl";
         } else {
             $target = $name;
         }
@@ -71,12 +95,5 @@ class tmExtractTests {
     {
         return $this->relNamesToCopy;
     }
-
-
-
-
-
-
-
 }
 ?>

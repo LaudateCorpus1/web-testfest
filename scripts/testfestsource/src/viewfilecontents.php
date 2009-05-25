@@ -34,11 +34,7 @@ $file = realpath($file);
 if (strpos($file, '/p2/var/www/results.testfest.php.net/public_html/publishresults/') !== 0) {
 	echo "Test file $file outside expected path<br />";
 } else {
-	$contents = file($file);
-
-	foreach($contents as $line) {
-   	 echo "$line<br />";
-	}
+        highlight_file($file);
 }
 
 echo "<br /><br /><a href='filelist.php?basename=$basename'>Back to file list</a><br />";
