@@ -62,6 +62,11 @@ foreach ($phpVersion as $dir) {
     $run_tests = $phpBuildDir."/".$dir."/run-tests.php";
     $phpExecutable = $phpBuildDir."/".$dir."/sapi/cli/php";
     echo "$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir\n";
+    // The php 6 run doesn't clean up properly for LDAP. So run the 5.3 tests once to clean up before running properly
+    if($dir == 'php5.3') {
+          shell_exec("$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir/ext/ldap/tests");
+    }
+
     $results = shell_exec("$phpExecutable -n  $run_tests -n -p $phpExecutable $testDir");
     file_put_contents($testDir."/results", $results);
 }
