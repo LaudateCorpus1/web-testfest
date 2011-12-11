@@ -28,11 +28,11 @@ $phpVersion = array( 'php6.0',
 $file = $_GET['file'];
 $basename = $_SESSION['basename'];
 
-echo "<br><b>File:".$file."</b><br><br>";
+echo "<br><b>File:".htmlspecialchars($file, ENT_QUOTES, 'UTF-8')."</b><br><br>";
 
 $file = realpath($file);
 if (strpos($file, '/p2/var/www/results.testfest.php.net/public_html/publishresults/') !== 0) {
-	echo "Test file $file outside expected path<br />";
+	echo "Test file ".htmlspecialchars($file, ENT_QUOTES, 'UTF-8')." outside expected path<br />";
 } else {
         highlight_file($file);
 }
